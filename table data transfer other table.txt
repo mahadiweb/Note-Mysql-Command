@@ -1,0 +1,1 @@
+#INSERT INTO table1 SELECT * FROM table2 WHERE id=..;
