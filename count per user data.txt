@@ -1,0 +1,52 @@
+Let us first create a table −
+
+mysql> create table DemoTable
+   -> (
+   -> UserName varchar(20),
+   -> UserType ENUM('New User','Registered User')
+   -> );
+Query OK, 0 rows affected (0.60 sec)
+
+
+Insert some records in the table using insert command −
+
+mysql> insert into DemoTable values('Chris','New User');
+Query OK, 1 row affected (0.12 sec)
+mysql> insert into DemoTable values('David','New User');
+Query OK, 1 row affected (0.09 sec)
+mysql> insert into DemoTable values('Mike','Registered User');
+Query OK, 1 row affected (0.20 sec)
+mysql> insert into DemoTable values('Sam','New User');
+Query OK, 1 row affected (0.10 sec)
+
+
+Display all records from the table using select statement −
+
+mysql> select * from DemoTable;
+This will produce the following output −
+
++----------+-----------------+
+| UserName | UserType        |
++----------+-----------------+
+| Chris    | New User        |
+| David    | New User        |
+| Mike     | Registered User |
+| Sam      | New User        |
++----------+-----------------+
+4 rows in set (0.00 sec)
+
+
+Here is the query to get number of users of different type −
+
+mysql> select count(*),UserType from DemoTable group by UserType;
+
+
+This will produce the following output−
+
++----------+-----------------+
+| count(*) | UserType        |
++----------+-----------------+
+|        3 | New User        |
+|        1 | Registered User |
++----------+-----------------+
+2 rows in set (0.00 sec)
